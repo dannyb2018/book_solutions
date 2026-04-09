@@ -12,7 +12,8 @@
   hobby,
   decorations.pathreplacing,
   shapes.geometric,
-  calc
+  calc,
+  positioning
 }
 %\usetikzlibrary{arrows,chains,matrix,positioning,scopes,knots,shapes,spy,snakes}
 
@@ -45,6 +46,19 @@
 \begin{tikzpicture}
   \draw circle (0.5);
   \draw (-0.5, 0) to ["text"] (0.5, 0);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  [every edge quotes/.style = {text=black, auto, font = \tiny\ttfamily, inner sep=1pt, sloped}]
+  \node (tex) [fill=orange] {TEX};
+  \node (pdf) [fill={rgb:red,244;green,15;blue,2}, right=of tex] {PDF};
+  \node (dvi) [fill=blue, above=of tex] {DVI};
+  \node (ps)  [fill=black!60, above=of pdf] {PS};
+  \draw (tex) edge["pdflatex"] (pdf)
+    (tex) edge["latex"] (dvi)
+    (dvi) edge["dvips"] (ps)
+    (dvi) edge["dvipdfmx"] (pdf)
+    (ps) edge["ps2pdf"] (pdf);
 \end{tikzpicture}
 
 \begin{definition}
