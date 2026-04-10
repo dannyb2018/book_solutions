@@ -61,6 +61,16 @@
     (ps) edge["ps2pdf"] (pdf);
 \end{tikzpicture}
 
+\begin{tikzpicture}
+  \draw [domain=-4*pi:4*pi, samples=80, smooth]
+    plot (\x/pi, {cos(\x r)}, {sin(\x r)}) ;
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \foreach \k in {0,2}
+    {\draw plot (\x + \k, \x^2);}
+\end{tikzpicture}
+
 \begin{definition}
 A Topological Space blah $(\mathcal{X}, \mathcal{T})$ is a set $\mathcal{X}$ with a family $\mathcal{T}$ of subsets of $\mathcal{T}$ such that:
 \begin{enumerate}
